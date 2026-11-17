@@ -1,0 +1,10 @@
+
+pandas==3.0.3
+numpy
+scikit-learn==1.8.0
+mlflow==3.17.2
+PyYAML==6.0.3
+pytest
+fastapi
+uvicorn
+httpx

@@ -1,0 +1,24 @@
+artifact_path: file:C:/Users/Mridu/ATM-Cash-Prediction/mlruns/1/models/m-14134d14be924d8685f23e92ebe9bf42/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.14.5
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.8.0
+    skops_trusted_types:
+    - sklearn.tree._tree.Tree
+mlflow_version: 3.17.2
+model_id: m-14134d14be924d8685f23e92ebe9bf42
+model_size_bytes: 14112287
+model_uuid: m-14134d14be924d8685f23e92ebe9bf42
+prompts: null
+run_id: 5bbcf727172f40bab83d729b9835a22b
+utc_time_created: '2026-11-17 19:25:49.774514'
