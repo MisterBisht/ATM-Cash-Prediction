@@ -1,14 +1,16 @@
 
 from contextlib import asynccontextmanager
 
-import mlflow
 import mlflow.sklearn
 import pandas as pd
+
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 
+MODEL_PATH = Path(__file__).resolve().parent.parent / "models" / "champion"
 MODEL_NAME = "atm-cash-prediction"
 MODEL_ALIAS = "champion"
 
@@ -27,16 +29,11 @@ FEATURE_COLUMNS = [
 @asynccontextmanager
 async def lifespan(app: FastAPI):
 
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
-
-    model_uri = f"models:/{MODEL_NAME}@{MODEL_ALIAS}"
-
-    app.state.model = mlflow.sklearn.load_model(model_uri)
+    app.state.model = mlflow.sklearn.load_model(str(MODEL_PATH))
 
     yield
 
     app.state.model = None
-
 
 app = FastAPI(
     title="ATM Cash Prediction API",
